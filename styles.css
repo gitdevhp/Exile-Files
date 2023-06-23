@@ -29,6 +29,7 @@ button {
 }
 
 #stats {
+    position: absolute;
     height: 50vh;
     width: 10vw;
     background-color: black;
