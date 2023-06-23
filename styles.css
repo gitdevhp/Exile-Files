@@ -32,5 +32,5 @@ button {
     height: 50vh;
     width: 10vw;
     background-color: black;
-    border-color: white;
+    border: 1px white;
 }
