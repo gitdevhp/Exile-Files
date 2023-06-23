@@ -1,4 +1,13 @@
 #grid {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+button {
+    height: 100/9vh;
+    width: 100vw;
+    border-radius: 1px;
+    border-color: white;
+    background-color: black;
 }
