@@ -24,7 +24,7 @@ button {
     height: 11vh;
     width: 11vw;
     border-radius: 1px;
-    border-color: white;
+    border: 1px white;
     background-color: black;
 }
 
