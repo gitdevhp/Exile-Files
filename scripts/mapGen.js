@@ -1,6 +1,6 @@
 const grid = document.getElementById('grid');
 
-const GRID_SIZE;
+//const GRID_SIZE;
 var baseSet = false;
 
 let pixel_size = cnvs.width / 16;
