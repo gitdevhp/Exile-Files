@@ -21,7 +21,9 @@ function initMap() {
             const gridBut = document.createElement('div');
             gridBut.setAttribute('data-x', c);
             gridBut.setAttribute('data-y', r);
-            gridBut.addEventListener("click", setBase(gridBut));
+            gridBut.addEventListener("click", (gridBut) =>{
+                setBase(gridBut);
+            });
             grid.appendChild(gridBut);
         }
     }
@@ -58,7 +60,8 @@ function setBase(area) {
                 const addGs = new Gs(caseEnv, bonusNum, true);
                 const curSelect = document.querySelector('[data-x="${i}"][data-y="${r}"]');
                 curSelect.appendChild(addGs);
-                curSelect.addEventListener('click', revealGridInfo());
+                curSelect.removeEventListener('click', setBase);
+                curSelect.addEventListener('click', revealGridInfo);
             }
         }
         baseSet = true;
