@@ -1,4 +1,4 @@
-const grid = document.getElementById('grid');
+const grid;
 let selectedGrid;
 
 //const GRID_SIZE;
@@ -17,21 +17,24 @@ document.addEventListener('mousemove', e => {
     curHov = document.elementFromPoint(e.clientX, e.clientY);
 }, { passive: true });
 
-window.addEventListener('load', initMap);
+window.addEventListener('load', () => {
+    grid = document.getElementById('grid');
+    document.addEventListener('DOMContentLoaded', initMap);
 
-function initMap() {
-    for (let r = 0; r < 16; r++) {
-        for (let c = 0; c < 9; c++) {
-            const gridBut = document.createElement('div');
-            gridBut.setAttribute('data-x', c);
-            gridBut.setAttribute('data-y', r);
-            gridBut.addEventListener("click", (event) => {
-                setBase(event.target);
-            });
-            grid.appendChild(gridBut);
+    function initMap() {
+        for (let r = 0; r < 16; r++) {
+            for (let c = 0; c < 9; c++) {
+                const gridBut = document.createElement('div');
+                gridBut.setAttribute('data-x', c);
+                gridBut.setAttribute('data-y', r);
+                gridBut.addEventListener("click", (event) => {
+                    setBase(event.target);
+                });
+                grid.appendChild(gridBut);
+            }
         }
     }
-}
+});
 
 
 function setBase(area) {
@@ -102,8 +105,8 @@ function revealGridInfo() {
 
 
 function addColor(areaToColor) {
-    const poo = areaToColor[Object.keys(curHov)][0];
-    const envu = poo.env;
+const poo = areaToColor[Object.keys(curHov)][0];
+const envu = poo.env;
     switch (envu) {
         case 'forest':
             curHov.style.backgroundColor = '#023C40';
