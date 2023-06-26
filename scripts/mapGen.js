@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function revealGridInfo() {
         console.log(curHov);
-        const gridObj = selectedGrid[Object.keys(selectedGrid)][0];
+        const gridObj = selectedGrid;
         selectedGrid = this;
         curHov = this;
     
