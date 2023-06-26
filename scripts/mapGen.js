@@ -67,7 +67,9 @@ function setBase(area) {
                 }
                 const curSelect = document.querySelector(`[data-x="${i}"][data-y="${r}"]`);
                 const addGs = new Gs(caseEnv, bonusNum, true, curSelect);
-                curSelect.appendChild(addGs.element); // Assuming the custom object has an 'element' property that holds the DOM element.
+                if (!curSelect.contains(addGs)) {
+                    curSelect.appendChild(addGs);
+                }
                 curSelect.removeEventListener('click', (gridBut));
                 addColor(curSelect);
                 curSelect.addEventListener('click', revealGridInfo);
