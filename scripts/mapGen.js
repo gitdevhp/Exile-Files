@@ -66,10 +66,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (addGs.element !== curSelect) {
                         curSelect.appendChild(addGs.element);
                     }
-                    curSelect.removeEventListener('click', gridButClickHandler);
+                    if (curSelect.hasAttribute('data-clicked')) {
+                        curSelect.removeEventListener('click', revealGridInfo);
+                    }
                     addColor(curSelect);
                     if (!curSelect.classList.contains('capital')) {
                         curSelect.addEventListener('click', revealGridInfo);
+                        curSelect.setAttribute('data-clicked', true);
                     }
                     document.getElementById('askCap').style.display = 'block';
                 }
