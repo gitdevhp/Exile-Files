@@ -21,7 +21,7 @@ function initMap() {
             const gridBut = document.createElement('div');
             gridBut.setAttribute('data-x', c);
             gridBut.setAttribute('data-y', r);
-            gridBut.addEventListener("click", (gridBut) =>{
+            gridBut.addEventListener("click", (gridBut) => {
                 setBase(gridBut);
             });
             grid.appendChild(gridBut);
@@ -60,7 +60,8 @@ function setBase(area) {
                 const addGs = new Gs(caseEnv, bonusNum, true);
                 const curSelect = document.querySelector('[data-x="${i}"][data-y="${r}"]');
                 curSelect.appendChild(addGs);
-                curSelect.removeEventListener('click', setBase);
+                //curSelect.removeEventListener('click', setBase);
+                curSelect.removeEventListener('click', (gridBut));
                 curSelect.addEventListener('click', revealGridInfo);
             }
         }
@@ -76,9 +77,10 @@ function Gs(env, bonus, reveal) {
     this.buildings = 'none';
 }
 
-function closeGridInfo() {
+function hideGridInfo() {
     document.getElementById('gridStat').style.display = 'none';
 }
+
 function revealGridInfo() {
     console.log(curHov);
     const gridObj = curHov[Object.keys(curHov)[0]];
