@@ -101,12 +101,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const gridObj = selectedGrid;
         selectedGrid = this; // Assign 'this' instead of 'curHov'
         curHov = this; // Update the value of 'curHov'
-        document.getElementById('gName').innerHTML = 'x:' + this.getAttribute('data-x') + 'y:' + this.getAttribute('data-y');
-        document.getElementById('gEnv').innerHTML = 'Environment: ' + gridObj.env;
-        document.getElementById('gBonus').innerHTML = 'Bonus: ' + gridObj.bonus;
-        document.getElementById('gBuildings').innerHTML = 'Buildings: ' + gridObj.buildings;
-        document.getElementById('gridStat').style.display = 'block';
+        
+        const gridInfo = {
+            gName: 'x:' + this.getAttribute('data-x') + 'y:' + this.getAttribute('data-y'),
+            gEnv: 'Environment: ' + gridObj.env,
+            gBonus: 'Bonus: ' + gridObj.bonus,
+            gBuildings: 'Buildings: ' + gridObj.buildings
+        };
+        
+        console.log(gridInfo); // Print the gridInfo object
     }
+    
 
     function addColor(areaToColor) {
         const gridObj = areaToColor.querySelector('.Gs');
