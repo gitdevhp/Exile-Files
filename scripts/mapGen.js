@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function setBase(area) {
         const xArea = area.getAttribute('data-x');
         const yArea = area.getAttribute('data-y');
-
+    
         if (!baseSet) {
             for (let i = xArea - 2; i < xArea + 2; i++) {
                 const vertRev = Math.abs(Math.abs((i - xArea) * 2) - 5);
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             baseSet = true;
         }
-    }
+    }    
 
     function Gs(env, bonus, reveal, element) {
         this.env = env;
