@@ -15,15 +15,20 @@
 
         </div>
     </div>
-    <div id="grid">
+    <div id="grid" style="z-index: 0;">
 
     </div>
-    <div id="gridStat" style="display: none; position: absolute;">
-        <h4 id="gName">null</h4>
-        <p id="gEnv">Environment: </p>
-        <p id="gBonus">Bonus: </p>
-        <p id="gBonus">Buildings: </p>
-        <button onclick="hideGridInfo()">close</button>
+    <div id="noti" style="z-index: 2;">
+        <div id="gridStat" style="display: none; position: absolute;">
+            <h4 id="gName">null</h4>
+            <p id="gEnv">Environment: </p>
+            <p id="gBonus">Bonus: </p>
+            <p id="gBonus">Buildings: </p>
+            <button onclick="hideGridInfo()">close</button>
+        </div>
+        <div id="askCap" style="display: none;">
+            <button onclick="setCap()">Set Captital</button>
+        </div>
     </div>
 </body>
 

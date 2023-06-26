@@ -2,8 +2,9 @@ const grid = document.getElementById('grid');
 
 //const GRID_SIZE;
 var baseSet = false;
+var canPlay = false;
 
-let div_size = cnvs.width / 16;
+let div_size = screenWidth / 16;
 let num_div = 16 * 9;
 
 let curHov = null;
@@ -64,6 +65,7 @@ function setBase(area) {
                 curSelect.removeEventListener('click', (gridBut));
                 addColor(curSelect);
                 curSelect.addEventListener('click', revealGridInfo);
+                document.getElementById('askCap').style.display = 'block';
             }
         }
         baseSet = true;
@@ -73,6 +75,7 @@ function setBase(area) {
 function Gs(env, bonus, reveal) {
     this.env = env;
     this.bonus = bonus;
+    this.population = 0;
 
     this.reveal = reveal;
     this.buildings = 'none';
@@ -90,8 +93,7 @@ function revealGridInfo() {
     document.getElementById('gBonus').innerHTML = 'Bonus: ' + gridObj.bonus;
     document.getElementById('gBuildings').innerHTML = 'Buildings: ' + gridObj.buildings;
     document.getElementById('gridStat').style.display = 'block';
-    //move below to diff method
-    }
+}
 
 
 function addColor(areaToColor) {
@@ -113,4 +115,10 @@ const envu = poo.env;
         default:
             curHov.style.backgroundColor = '#A4958E';
     }
+}
+
+function setCap() {
+    curHov.setAttribute('data-is-capital', true);
+    document.getElementById('askCap').style.display = 'none';
+    canPlay = true;
 }
