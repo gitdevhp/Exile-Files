@@ -16,9 +16,9 @@ document.addEventListener('mousemove', e => {
     curHov = document.elementFromPoint(e.clientX, e.clientY);
 }, { passive: true });
 
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const grid = document.getElementById('grid');
-    document.addEventListener('DOMContentLoaded', initMap);
+    initMap();
 
     function initMap() {
         for (let r = 0; r < 16; r++) {
@@ -35,6 +35,7 @@ window.addEventListener('load', () => {
         }
     }
 });
+
 
 
 function setBase(area) {
