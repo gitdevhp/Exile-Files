@@ -98,19 +98,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function revealGridInfo() {
         console.log(curHov);
-        const gridObj = selectedGrid;
-        selectedGrid = this; // Assign 'this' instead of 'curHov'
-        curHov = this; // Update the value of 'curHov'
-        
+        const gridObj = selectedGrid[Object.keys(selectedGrid)][0];
+        selectedGrid = this;
+        curHov = this;
+    
         const gridInfo = {
             gName: 'x:' + this.getAttribute('data-x') + 'y:' + this.getAttribute('data-y'),
             gEnv: 'Environment: ' + gridObj.env,
             gBonus: 'Bonus: ' + gridObj.bonus,
             gBuildings: 'Buildings: ' + gridObj.buildings
         };
-        
-        console.log(gridInfo); // Print the gridInfo object
+    
+        console.log(gridInfo);
     }
+    
     
 
     function addColor(areaToColor) {
