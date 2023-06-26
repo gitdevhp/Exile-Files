@@ -27,9 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 gridBut.setAttribute('data-x', r);
                 gridBut.setAttribute('data-y', c);
                 gridBut.classList.add('sector');
-                gridBut.addEventListener("click", (event) => {
+                // Store the click event handler in a variable
+                const gridButClickHandler = (event) => {
                     setBase(event.target);
-                });
+                };
+
+                // Add the event listener
+                gridBut.addEventListener("click", gridButClickHandler);
                 grid.appendChild(gridBut);
             }
         }
@@ -66,13 +70,11 @@ function setBase(area) {
                         caseEnv = 'basic';
                 }
                 const curSelect = document.querySelector(`[data-x="${i}"][data-y="${r}"]`);
-                const addGs = new Gs(caseEnv, bonusNum, true, curSelect);
-                if (![...curSelect.childNodes].includes(addGs)) {
-                    const addGsWrapper = document.createElement('div');
-                    addGsWrapper.appendChild(addGs);
-                    curSelect.appendChild(addGsWrapper);;
+                const addGs = new Gs(caseEnv, bonusNum, true);
+                if (!curSelect.contains(addGs.element)) {
+                    curSelect.appendChild(addGs.element);
                 }
-                curSelect.removeEventListener('click', (gridBut));
+                gridBut.removeEventListener("click", gridButClickHandler);
                 addColor(curSelect);
                 curSelect.addEventListener('click', revealGridInfo);
                 document.getElementById('askCap').style.display = 'block';
@@ -81,6 +83,7 @@ function setBase(area) {
         baseSet = true;
     }
 }
+
 
 
 function Gs(env, bonus, reveal, element) {
