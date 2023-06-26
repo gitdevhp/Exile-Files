@@ -1,4 +1,4 @@
-const grid;
+const grid = null;
 let selectedGrid;
 
 //const GRID_SIZE;
