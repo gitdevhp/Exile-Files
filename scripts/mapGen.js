@@ -100,14 +100,16 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('gridStat').style.display = 'block';
     }
 
-    function addColor(areaToColor) {
-        const gridObj = areaToColor.querySelector('.Gs');
+function addColor(areaToColor) {
+    const gridObj = areaToColor.querySelector('.Gs');
+    if (gridObj) {
         const envu = gridObj.env;
         const elementClassList = areaToColor.classList;
         elementClassList.remove('forest', 'mountain', 'plains', 'desert', 'basic');
         elementClassList.add(envu);
     }
-});
+}
+
 
 function setCap() {
     const gridObj = selectedGrid[Object.keys(selectedGrid)][0];
