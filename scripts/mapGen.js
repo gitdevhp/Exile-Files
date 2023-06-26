@@ -67,7 +67,7 @@ function setBase(area) {
                 }
                 const curSelect = document.querySelector(`[data-x="${i}"][data-y="${r}"]`);
                 const addGs = new Gs(caseEnv, bonusNum, true, curSelect);
-                if (!curSelect.contains(addGs)) {
+                if (![...curSelect.childNodes].includes(addGs)) {
                     curSelect.appendChild(addGs);
                 }
                 curSelect.removeEventListener('click', (gridBut));
@@ -108,8 +108,8 @@ function revealGridInfo() {
 
 
 function addColor(areaToColor) {
-const poo = areaToColor[Object.keys(areaToColor)][0];
-const envu = poo.env;
+    const poo = areaToColor[Object.keys(areaToColor)][0];
+    const envu = poo.env;
     switch (envu) {
         case 'forest':
             curHov.style.backgroundColor = '#023C40';
