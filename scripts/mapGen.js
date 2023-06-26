@@ -113,23 +113,24 @@ function revealGridInfo() {
 
 
 function addColor(areaToColor) {
-    const poo = areaToColor[Object.keys(areaToColor)][0];
-    const envu = poo.env;
+    const gridObj = areaToColor.querySelector('.Gs');
+    const envu = gridObj.env;
+
     switch (envu) {
         case 'forest':
-            curHov.style.backgroundColor = '#023C40';
+            areaToColor.style.backgroundColor = '#023C40';
             break;
         case 'mountain':
-            curHov.style.backgroundColor = '#955E42';
+            areaToColor.style.backgroundColor = '#955E42';
             break;
         case 'plains':
-            curHov.style.backgroundColor = '#B0970A';
+            areaToColor.style.backgroundColor = '#B0970A';
             break;
         case 'desert':
-            curHov.style.backgroundColor = '#DAD2BC';
+            areaToColor.style.backgroundColor = '#DAD2BC';
             break;
         default:
-            curHov.style.backgroundColor = '#A4958E';
+            areaToColor.style.backgroundColor = '#A4958E';
     }
 }
 
