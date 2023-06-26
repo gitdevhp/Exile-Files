@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function setBase(area) {
         const xArea = area.getAttribute('data-x');
         const yArea = area.getAttribute('data-y');
-
+    
         if (!baseSet) {
             for (let i = xArea - 2; i < xArea + 2; i++) {
                 const vertRev = Math.abs(Math.abs((i - xArea) * 2) - 5);
@@ -62,19 +62,21 @@ document.addEventListener('DOMContentLoaded', () => {
                             caseEnv = 'basic';
                     }
                     const curSelect = document.querySelector(`[data-x="${i}"][data-y="${r}"]`);
-                    const addGs = new Gs(caseEnv, bonusNum, true, curSelect);
-                    if (addGs.element !== curSelect) {
-                        curSelect.appendChild(addGs.element);
+                    if (curSelect !== null) {
+                        const addGs = new Gs(caseEnv, bonusNum, true, curSelect);
+                        if (addGs.element !== curSelect) {
+                            curSelect.appendChild(addGs.element);
+                        }
+                        if (curSelect.hasAttribute('data-clicked')) {
+                            curSelect.removeEventListener('click', revealGridInfo);
+                        }
+                        addColor(curSelect);
+                        if (!curSelect.classList.contains('capital')) {
+                            curSelect.addEventListener('click', revealGridInfo);
+                            curSelect.setAttribute('data-clicked', true);
+                        }
+                        document.getElementById('askCap').style.display = 'block';
                     }
-                    if (curSelect.hasAttribute('data-clicked')==null) {
-                        curSelect.removeEventListener('click', revealGridInfo);
-                    }
-                    addColor(curSelect);
-                    if (!curSelect.classList.contains('capital')) {
-                        curSelect.addEventListener('click', revealGridInfo);
-                        curSelect.setAttribute('data-clicked', true);
-                    }
-                    document.getElementById('askCap').style.display = 'block';
                 }
             }
             baseSet = true;
