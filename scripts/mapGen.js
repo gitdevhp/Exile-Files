@@ -21,11 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initMap();
 
     function initMap() {
-        for (let r = 0; r < 16; r++) {
-            for (let c = 0; c < 9; c++) {
+        for (let c = 0; c < 9; c++) {
+            for (let r = 0; r < 16; r++) {
                 const gridBut = document.createElement('div');
-                gridBut.setAttribute('data-x', c);
-                gridBut.setAttribute('data-y', r);
+                gridBut.setAttribute('data-x', r);
+                gridBut.setAttribute('data-y', c);
                 gridBut.classList.add('sector');
                 gridBut.addEventListener("click", (event) => {
                     setBase(event.target);
@@ -35,8 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
-
-
 
 function setBase(area) {
     var xArea = area.getAttribute('data-x');
