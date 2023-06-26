@@ -42,33 +42,32 @@ function setBase(area) {
     console.log(area);
     if (!baseSet) {
         for (let i = xArea - 2; i < xArea + 2; i++) {
-            //init area Reveal
+            // init area Reveal
             var vertRev = Math.abs(Math.abs((i - xArea) * 2) - 5);
             var revX = i;
             for (let r = yArea - ((vertRev - 1) / 2); r < vertRev + yArea; r++) {
                 var tempHold = Math.random() * 5;
                 var bonusNum = Math.pow(Math.random(), 4);
                 var caseEnv;
-                switch (tempHold) {
+                switch (true) {
                     case (tempHold < 1):
                         caseEnv = 'forest';
                         break;
-                    case (1 <= tempHold < 2):
+                    case (1 <= tempHold && tempHold < 2):
                         caseEnv = 'mountain';
                         break;
-                    case (2 <= tempHold < 3):
+                    case (2 <= tempHold && tempHold < 3):
                         caseEnv = 'plains';
                         break;
-                    case (3 <= tempHold < 4):
+                    case (3 <= tempHold && tempHold < 4):
                         caseEnv = 'desert';
                         break;
                     default:
-                        caseEnv = 'basic'
+                        caseEnv = 'basic';
                 }
-                const addGs = new Gs(caseEnv, bonusNum, true);
+                const addGs = new Gs(caseEnv, bonusNum, true, curSelect);
                 const curSelect = document.querySelector(`[data-x="${i}"][data-y="${r}"]`);
-                curSelect.appendChild(addGs);
-                //curSelect.removeEventListener('click', setBase);
+                curSelect.appendChild(addGs.element); // Assuming the custom object has an 'element' property that holds the DOM element.
                 curSelect.removeEventListener('click', (gridBut));
                 addColor(curSelect);
                 curSelect.addEventListener('click', revealGridInfo);
@@ -79,13 +78,15 @@ function setBase(area) {
     }
 }
 
-function Gs(env, bonus, reveal) {
+
+function Gs(env, bonus, reveal, element) {
     this.env = env;
     this.bonus = bonus;
     this.population = 0;
 
     this.reveal = reveal;
     this.buildings = 'none';
+    this.element = element
 }
 
 function hideGridInfo() {
