@@ -27,11 +27,12 @@
 
 /*not flex*/
 .sector {
-    height: 6.25vh;
-    width: 6.25vh;
+    height: calc(100vh / 9);
+    width: calc(100vw / 16);
     border: 1px solid white;
+    border-radius: 1px;
     background-color: black;
-  }  
+  }
 
 body {
     background-color: black;
