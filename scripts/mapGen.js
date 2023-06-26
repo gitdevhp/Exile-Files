@@ -21,13 +21,13 @@ function initMap() {
             const gridBut = document.createElement('div');
             gridBut.setAttribute('data-x', c);
             gridBut.setAttribute('data-y', r);
-            gridBut.addEventListener("click", bringOption(gridBut));
+            gridBut.addEventListener("click", setBase(gridBut));
             grid.appendChild(gridBut);
         }
     }
 }
 
-function bringOption(area) {
+function setBase(area) {
     var xArea = area.getAttribute('data-x');
     var yArea = area.getAttribute('data-y');
     if (!baseSet) {
@@ -61,6 +61,7 @@ function bringOption(area) {
                 curSelect.addEventListener('click', revealGridInfo());
             }
         }
+        baseSet = true;
     }
 }
 
