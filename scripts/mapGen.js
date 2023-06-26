@@ -1,4 +1,3 @@
-var grid = null;
 let selectedGrid;
 
 //const GRID_SIZE;
@@ -18,7 +17,7 @@ document.addEventListener('mousemove', e => {
 }, { passive: true });
 
 window.addEventListener('load', () => {
-    grid = document.getElementById('grid');
+    const grid = document.getElementById('grid');
     document.addEventListener('DOMContentLoaded', initMap);
 
     function initMap() {
