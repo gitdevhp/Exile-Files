@@ -30,8 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function gridButClickHandler(event) {
-        setBase(event.target);
+    function gridButClickHandler() {
+        setBase(curHov);
+        console.log(curHov);
     }
 
     function setBase(area) {
