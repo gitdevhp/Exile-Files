@@ -1,6 +1,5 @@
 const grid = document.getElementById('grid');
 let selectedGrid;
-let gridObj = selectedGrid[Object.keys(selectedGrid)][0];
 
 //const GRID_SIZE;
 var baseSet = false;
@@ -17,10 +16,6 @@ const screenHeight = window.screen.height;
 document.addEventListener('mousemove', e => {
     curHov = grid.elementFromPoint(e.clientX, e.clientY);
 }, { passive: true });
-
-function curSelect() {
-    selectedGrid = curHov;
-}
 
 function initMap() {
     for (let r = 0; r < 16; r++) {
@@ -93,6 +88,7 @@ function hideGridInfo() {
 
 function revealGridInfo() {
     console.log(curHov);
+    let gridObj = selectedGrid[Object.keys(selectedGrid)][0];
     selectedGrid = curHov;
     document.getElementById('gName').innerHTML = 'x:' + curHov.getAttribute('data-x') + 'y:' + curHov.getAttribute('data-y');
     document.getElementById('gEnv').innerHTML = 'Environment: ' + gridObj.env;
@@ -124,6 +120,7 @@ const envu = poo.env;
 }
 
 function setCap() {
+    let gridObj = selectedGrid[Object.keys(selectedGrid)][0];
     curHov.setAttribute('data-is-capital', true);
     document.getElementById('askCap').style.display = 'none';
     gridObj.population = 5;
