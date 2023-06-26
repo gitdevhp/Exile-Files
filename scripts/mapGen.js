@@ -115,24 +115,26 @@ function revealGridInfo() {
 function addColor(areaToColor) {
     const gridObj = areaToColor.querySelector('.Gs');
     const envu = gridObj.env;
+    const elementStyle = areaToColor.style;
 
     switch (envu) {
         case 'forest':
-            areaToColor.style.backgroundColor = '#023C40';
+            elementStyle.backgroundColor = '#023C40';
             break;
         case 'mountain':
-            areaToColor.style.backgroundColor = '#955E42';
+            elementStyle.backgroundColor = '#955E42';
             break;
         case 'plains':
-            areaToColor.style.backgroundColor = '#B0970A';
+            elementStyle.backgroundColor = '#B0970A';
             break;
         case 'desert':
-            areaToColor.style.backgroundColor = '#DAD2BC';
+            elementStyle.backgroundColor = '#DAD2BC';
             break;
         default:
-            areaToColor.style.backgroundColor = '#A4958E';
+            elementStyle.backgroundColor = '#A4958E';
     }
 }
+
 
 function setCap() {
     let gridObj = selectedGrid[Object.keys(selectedGrid)][0];
