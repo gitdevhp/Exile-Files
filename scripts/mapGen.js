@@ -5,13 +5,13 @@ let selectedGrid;
 var baseSet = false;
 var canPlay = false;
 
+const screenWidth = window.screen.width;
+const screenHeight = window.screen.height;
+
 let div_size = screenWidth / 16;
 let num_div = 16 * 9;
 
 let curHov = null;
-
-const screenWidth = window.screen.width;
-const screenHeight = window.screen.height;
 
 document.addEventListener('mousemove', e => {
     curHov = grid.elementFromPoint(e.clientX, e.clientY);
