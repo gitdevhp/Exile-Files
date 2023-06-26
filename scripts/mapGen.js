@@ -68,7 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     curSelect.removeEventListener('click', gridButClickHandler);
                     addColor(curSelect);
-                    curSelect.addEventListener('click', revealGridInfo);
+                    if (!curSelect.classList.contains('capital')) {
+                        curSelect.addEventListener('click', revealGridInfo);
+                    }
                     document.getElementById('askCap').style.display = 'block';
                 }
             }
@@ -109,14 +111,13 @@ document.addEventListener('DOMContentLoaded', () => {
             elementClassList.add(envu);
         }
     }
+
+
+    function setCap() {
+        const gridObj = selectedGrid[Object.keys(selectedGrid)][0];
+        curHov.setAttribute('data-is-capital', true);
+        document.getElementById('askCap').style.display = 'none';
+        gridObj.population = 5;
+        canPlay = true;
+    }
 });
-
-
-function setCap() {
-    const gridObj = selectedGrid[Object.keys(selectedGrid)][0];
-    curHov.setAttribute('data-is-capital', true);
-    document.getElementById('askCap').style.display = 'none';
-    gridObj.population = 5;
-    canPlay = true;
-}
-
