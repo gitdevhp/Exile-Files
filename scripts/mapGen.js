@@ -105,7 +105,7 @@ function revealGridInfo() {
 
 
 function addColor(areaToColor) {
-const poo = areaToColor[Object.keys(curHov)][0];
+const poo = areaToColor[Object.keys(areaToColor)][0];
 const envu = poo.env;
     switch (envu) {
         case 'forest':
