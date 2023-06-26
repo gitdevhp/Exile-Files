@@ -71,7 +71,7 @@ function setBase(area) {
                 }
                 const curSelect = document.querySelector(`[data-x="${i}"][data-y="${r}"]`);
 
-                const addGs = new Gs(caseEnv, bonusNum, true);
+                const addGs = new Gs(caseEnv, bonusNum, true, curSelect);
                 if (![...curSelect.childNodes].includes(addGs.element)) {
                     curSelect.appendChild(addGs.element);
                 }
