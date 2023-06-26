@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (addGs.element !== curSelect) {
                         curSelect.appendChild(addGs.element);
                     }
-                    if (curSelect.hasAttribute('data-clicked')) {
+                    if (curSelect.hasAttribute('data-clicked')==null) {
                         curSelect.removeEventListener('click', revealGridInfo);
                     }
                     addColor(curSelect);
