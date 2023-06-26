@@ -17,6 +17,8 @@ document.addEventListener('mousemove', e => {
     curHov = grid.elementFromPoint(e.clientX, e.clientY);
 }, { passive: true });
 
+window.addEventListener('load', initMap());
+
 function initMap() {
     for (let r = 0; r < 16; r++) {
         for (let c = 0; c < 9; c++) {
