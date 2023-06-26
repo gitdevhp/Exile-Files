@@ -70,10 +70,12 @@ function setBase(area) {
                         caseEnv = 'basic';
                 }
                 const curSelect = document.querySelector(`[data-x="${i}"][data-y="${r}"]`);
+
                 const addGs = new Gs(caseEnv, bonusNum, true);
-                if (![...curSelect.childNodes].includes(addGs)) {
-                    curSelect.appendChild(addGs);
+                if (![...curSelect.childNodes].includes(addGs.element)) {
+                    curSelect.appendChild(addGs.element);
                 }
+
                 curSelect.removeEventListener('click', gridButClickHandler);
                 addColor(curSelect);
                 curSelect.addEventListener('click', revealGridInfo);
@@ -88,10 +90,9 @@ function Gs(env, bonus, reveal, element) {
     this.env = env;
     this.bonus = bonus;
     this.population = 0;
-
     this.reveal = reveal;
     this.buildings = 'none';
-    this.element = element
+    this.element = element;
 }
 
 function hideGridInfo() {
