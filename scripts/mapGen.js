@@ -27,6 +27,7 @@ window.addEventListener('load', () => {
                 const gridBut = document.createElement('div');
                 gridBut.setAttribute('data-x', c);
                 gridBut.setAttribute('data-y', r);
+                gridBut.classList.add('sector');
                 gridBut.addEventListener("click", (event) => {
                     setBase(event.target);
                 });

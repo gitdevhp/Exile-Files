@@ -6,7 +6,6 @@
     height: 100vh;
     width: 100vw;
 }
-
 #usables {
     position: absolute;
     height: 100vh;
@@ -27,6 +26,13 @@
 }
 
 /*not flex*/
+.sector {
+    height: 6.25vh;
+    width: 6.25vw;
+    border: 1px white;
+    background-color: black;
+}
+
 body {
     background-color: black;
     overflow: hidden;
@@ -35,7 +41,6 @@ body {
 button {
     height: 11vh;
     width: 11vw;
-    border-radius: 1px;
     border: 1px white;
     background-color: black;
 }
