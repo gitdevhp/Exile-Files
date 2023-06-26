@@ -84,8 +84,6 @@ function setBase(area) {
     }
 }
 
-
-
 function Gs(env, bonus, reveal, element) {
     this.env = env;
     this.bonus = bonus;
@@ -111,30 +109,14 @@ function revealGridInfo() {
     document.getElementById('gridStat').style.display = 'block';
 }
 
-
 function addColor(areaToColor) {
     const gridObj = areaToColor.querySelector('.Gs');
     const envu = gridObj.env;
-    const elementStyle = areaToColor.style;
+    const elementClassList = areaToColor.classList;
 
-    switch (envu) {
-        case 'forest':
-            elementStyle.backgroundColor = '#023C40';
-            break;
-        case 'mountain':
-            elementStyle.backgroundColor = '#955E42';
-            break;
-        case 'plains':
-            elementStyle.backgroundColor = '#B0970A';
-            break;
-        case 'desert':
-            elementStyle.backgroundColor = '#DAD2BC';
-            break;
-        default:
-            elementStyle.backgroundColor = '#A4958E';
-    }
+    elementClassList.remove('forest', 'mountain', 'plains', 'desert', 'basic');
+    elementClassList.add(envu);
 }
-
 
 function setCap() {
     let gridObj = selectedGrid[Object.keys(selectedGrid)][0];

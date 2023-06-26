@@ -53,3 +53,24 @@ button {
     background-color: black;
     border: 1px white;
 }
+
+/* environment colors and textures */
+.forest {
+    background-color: #023C40;
+}
+
+.mountain {
+    background-color: #955E42;
+}
+
+.plains {
+    background-color: #B0970A;
+}
+
+.desert {
+    background-color: #DAD2BC;
+}
+
+.basic {
+    background-color: #A4958E;
+}
