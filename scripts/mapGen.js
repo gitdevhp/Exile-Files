@@ -65,8 +65,8 @@ function setBase(area) {
                     default:
                         caseEnv = 'basic';
                 }
-                const addGs = new Gs(caseEnv, bonusNum, true, curSelect);
                 const curSelect = document.querySelector(`[data-x="${i}"][data-y="${r}"]`);
+                const addGs = new Gs(caseEnv, bonusNum, true, curSelect);
                 curSelect.appendChild(addGs.element); // Assuming the custom object has an 'element' property that holds the DOM element.
                 curSelect.removeEventListener('click', (gridBut));
                 addColor(curSelect);
