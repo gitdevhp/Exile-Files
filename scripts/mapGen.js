@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function revealGridInfo() {
         console.log(curHov);
-        const gridObj = selectedGrid[Object.keys(selectedGrid)][0];
+        const gridObj = selectedGrid;
         selectedGrid = this; // Assign 'this' instead of 'curHov'
         curHov = this; // Update the value of 'curHov'
         document.getElementById('gName').innerHTML = 'x:' + this.getAttribute('data-x') + 'y:' + this.getAttribute('data-y');
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setCap() {
-        const gridObj = selectedGrid[Object.keys(selectedGrid)][0];
+        const gridObj = selectedGrid;
         selectedGrid.setAttribute('data-is-capital', true); // Use 'selectedGrid' instead of 'curHov'
         document.getElementById('askCap').style.display = 'none';
         gridObj.population = 5;
