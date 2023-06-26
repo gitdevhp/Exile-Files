@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initMap();
 
     function initMap() {
-        for (let c = 0; c < 9; c++) {
-            for (let r = 0; r < 16; r++) {
+        for (let c = 1; c <= 9; c++) {
+            for (let r = 1; r <= 16; r++) {
                 const gridBut = document.createElement('div');
                 gridBut.setAttribute('data-x', r);
                 gridBut.setAttribute('data-y', c);
@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function setBase(area) {
     var xArea = area.getAttribute('data-x');
     var yArea = area.getAttribute('data-y');
+    console.log(area);
     if (!baseSet) {
         for (let i = xArea - 2; i < xArea + 2; i++) {
             //init area Reveal
