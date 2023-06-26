@@ -29,9 +29,9 @@
 .sector {
     height: 6.25vh;
     width: 6.25vw;
-    border: 1px white;
+    border: 1px solid white;
     background-color: black;
-}
+  }  
 
 body {
     background-color: black;
