@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function setBase(area) {
         const xArea = area.getAttribute('data-x');
         const yArea = area.getAttribute('data-y');
-    
+
         if (!baseSet) {
             for (let i = xArea - 2; i < xArea + 2; i++) {
                 const vertRev = Math.abs(Math.abs((i - xArea) * 2) - 5);
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             baseSet = true;
         }
-    }    
+    }
 
     function Gs(env, bonus, reveal, element) {
         this.env = env;
@@ -97,8 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function revealGridInfo() {
         console.log(curHov);
         const gridObj = selectedGrid[Object.keys(selectedGrid)][0];
-        selectedGrid = curHov;
-        document.getElementById('gName').innerHTML = 'x:' + curHov.getAttribute('data-x') + 'y:' + curHov.getAttribute('data-y');
+        selectedGrid = this; // Assign 'this' instead of 'curHov'
+        curHov = this; // Update the value of 'curHov'
+        document.getElementById('gName').innerHTML = 'x:' + this.getAttribute('data-x') + 'y:' + this.getAttribute('data-y');
         document.getElementById('gEnv').innerHTML = 'Environment: ' + gridObj.env;
         document.getElementById('gBonus').innerHTML = 'Bonus: ' + gridObj.bonus;
         document.getElementById('gBuildings').innerHTML = 'Buildings: ' + gridObj.buildings;
@@ -115,10 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-
     function setCap() {
         const gridObj = selectedGrid[Object.keys(selectedGrid)][0];
-        curHov.setAttribute('data-is-capital', true);
+        selectedGrid.setAttribute('data-is-capital', true); // Use 'selectedGrid' instead of 'curHov'
         document.getElementById('askCap').style.display = 'none';
         gridObj.population = 5;
         canPlay = true;
