@@ -100,15 +100,16 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('gridStat').style.display = 'block';
     }
 
-function addColor(areaToColor) {
-    const gridObj = areaToColor.querySelector('.Gs');
-    if (gridObj) {
-        const envu = gridObj.env;
-        const elementClassList = areaToColor.classList;
-        elementClassList.remove('forest', 'mountain', 'plains', 'desert', 'basic');
-        elementClassList.add(envu);
+    function addColor(areaToColor) {
+        const gridObj = areaToColor.querySelector('.Gs');
+        if (gridObj) {
+            const envu = gridObj.env;
+            const elementClassList = areaToColor.classList;
+            elementClassList.remove('forest', 'mountain', 'plains', 'desert', 'basic');
+            elementClassList.add(envu);
+        }
     }
-}
+});
 
 
 function setCap() {
@@ -118,3 +119,4 @@ function setCap() {
     gridObj.population = 5;
     canPlay = true;
 }
+
