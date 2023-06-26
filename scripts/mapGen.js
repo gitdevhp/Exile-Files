@@ -72,9 +72,10 @@ function setBase(area) {
                 const curSelect = document.querySelector(`[data-x="${i}"][data-y="${r}"]`);
 
                 const addGs = new Gs(caseEnv, bonusNum, true, curSelect);
-                if (![...curSelect.childNodes].includes(addGs.element)) {
+                if (addGs.element !== curSelect) {
                     curSelect.appendChild(addGs.element);
                 }
+
 
                 curSelect.removeEventListener('click', gridButClickHandler);
                 addColor(curSelect);
