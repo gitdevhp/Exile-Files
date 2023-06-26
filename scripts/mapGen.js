@@ -14,10 +14,10 @@ let num_div = 16 * 9;
 let curHov = null;
 
 document.addEventListener('mousemove', e => {
-    curHov = grid.elementFromPoint(e.clientX, e.clientY);
+    curHov = document.elementFromPoint(e.clientX, e.clientY);
 }, { passive: true });
 
-window.addEventListener('load', initMap());
+window.addEventListener('load', initMap);
 
 function initMap() {
     for (let r = 0; r < 16; r++) {
@@ -25,13 +25,14 @@ function initMap() {
             const gridBut = document.createElement('div');
             gridBut.setAttribute('data-x', c);
             gridBut.setAttribute('data-y', r);
-            gridBut.addEventListener("click", (gridBut) => {
-                setBase(gridBut);
+            gridBut.addEventListener("click", (event) => {
+                setBase(event.target);
             });
             grid.appendChild(gridBut);
         }
     }
 }
+
 
 function setBase(area) {
     var xArea = area.getAttribute('data-x');
@@ -101,8 +102,8 @@ function revealGridInfo() {
 
 
 function addColor(areaToColor) {
-const poo = areaToColor[Object.keys(curHov)][0];
-const envu = poo.env;
+    const poo = areaToColor[Object.keys(curHov)][0];
+    const envu = poo.env;
     switch (envu) {
         case 'forest':
             curHov.style.backgroundColor = '#023C40';
