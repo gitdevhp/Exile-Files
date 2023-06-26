@@ -66,7 +66,7 @@ function setBase(area) {
                         caseEnv = 'basic'
                 }
                 const addGs = new Gs(caseEnv, bonusNum, true);
-                const curSelect = document.querySelector('[data-x="${i}"][data-y="${r}"]');
+                const curSelect = document.querySelector(`[data-x="${i}"][data-y="${r}"]`);
                 curSelect.appendChild(addGs);
                 //curSelect.removeEventListener('click', setBase);
                 curSelect.removeEventListener('click', (gridBut));
