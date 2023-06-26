@@ -3,8 +3,8 @@ const grid = document.getElementById('grid');
 //const GRID_SIZE;
 var baseSet = false;
 
-let pixel_size = cnvs.width / 16;
-let num_pixels = 16 * 9;
+let div_size = cnvs.width / 16;
+let num_div = 16 * 9;
 
 let curHov = null;
 
@@ -17,7 +17,7 @@ document.addEventListener('mousemove', e => {
 
 function initMap() {
     for (let r = 0; r < 16; r++) {
-        for (let c = 0; c < array.length; c++) {
+        for (let c = 0; c < 9; c++) {
             const gridBut = document.createElement('div');
             gridBut.setAttribute('data-x', c);
             gridBut.setAttribute('data-y', r);
