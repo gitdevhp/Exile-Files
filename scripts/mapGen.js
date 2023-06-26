@@ -71,10 +71,10 @@ function setBase(area) {
                 }
                 const curSelect = document.querySelector(`[data-x="${i}"][data-y="${r}"]`);
                 const addGs = new Gs(caseEnv, bonusNum, true);
-                if (!curSelect.contains(addGs.element)) {
-                    curSelect.appendChild(addGs.element);
+                if (![...curSelect.childNodes].includes(addGs)) {
+                    curSelect.appendChild(addGs);
                 }
-                gridBut.removeEventListener("click", gridButClickHandler);
+                curSelect.removeEventListener('click', gridButClickHandler);
                 addColor(curSelect);
                 curSelect.addEventListener('click', revealGridInfo);
                 document.getElementById('askCap').style.display = 'block';
