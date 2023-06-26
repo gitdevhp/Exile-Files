@@ -62,6 +62,7 @@ function setBase(area) {
                 curSelect.appendChild(addGs);
                 //curSelect.removeEventListener('click', setBase);
                 curSelect.removeEventListener('click', (gridBut));
+                addColor(curSelect);
                 curSelect.addEventListener('click', revealGridInfo);
             }
         }
@@ -83,14 +84,19 @@ function hideGridInfo() {
 
 function revealGridInfo() {
     console.log(curHov);
-    const gridObj = curHov[Object.keys(curHov)[0]];
-    var envu = gridObj.env;
+    const gridObj = curHov[Object.keys(curHov)][0];
     document.getElementById('gName').innerHTML = 'x:' + curHov.getAttribute('data-x') + 'y:' + curHov.getAttribute('data-y');
-    document.getElementById('gEnv').innerHTML = 'Environment: ' + envu;
+    document.getElementById('gEnv').innerHTML = 'Environment: ' + gridObj.env;
     document.getElementById('gBonus').innerHTML = 'Bonus: ' + gridObj.bonus;
     document.getElementById('gBuildings').innerHTML = 'Buildings: ' + gridObj.buildings;
     document.getElementById('gridStat').style.display = 'block';
     //move below to diff method
+    }
+
+
+function addColor(areaToColor) {
+const poo = areaToColor[Object.keys(curHov)][0];
+const envu = poo.env;
     switch (envu) {
         case 'forest':
             curHov.style.backgroundColor = '#023C40';
