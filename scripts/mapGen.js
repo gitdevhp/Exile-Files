@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 gridBut.setAttribute('data-y', c);
                 gridBut.classList.add('sector');
                 gridBut.addEventListener("click", gridButClickHandler);
-                grid.appendChild(gridBut);
+                grid.append(gridBut);
             }
         }
     }
@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function Gs(env, bonus, reveal, element) {
         this.env = env;
         this.bonus = bonus;
+        
         this.population = 0;
         this.reveal = reveal;
         this.buildings = 'none';
