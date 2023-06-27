@@ -33,11 +33,12 @@
     border: 1px solid white;
     border-radius: 10px;
     background-color: black;
-    padding: 4px;
+    padding: 2px;
 }
 
 .sector:hover {
     border: 3px solid white;
+    padding: 0px;
 }
 
 body {
