@@ -30,9 +30,13 @@
     height: calc(100vh / 9);
     width: calc(100vw / 16);
     border: 1px solid white;
-    border-radius: 1px;
+    border-radius: 3px;
     background-color: black;
   }
+
+.sector:hover {
+    border: 3px solid white;
+}
 
 body {
     background-color: black;
