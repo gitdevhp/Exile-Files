@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function Gs(env, bonus, reveal, element) {
         this.env = env;
         this.bonus = bonus;
-        
+
         this.population = 0;
         this.reveal = reveal;
         this.buildings = 'none';
@@ -100,12 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function revealGridInfo() {
         console.log(curHov);
-        const gridObj = selectedGrid;
-        selectedGrid = this;
-        curHov = this;
+        const gridObj = curHov[Object.keys(curHov)][0];
+        selectedGrid = curHov;
     
         const gridInfo = {
-            gName: 'x:' + this.getAttribute('data-x') + 'y:' + this.getAttribute('data-y'),
+            gName: 'x:' + curHov.getAttribute('data-x') + 'y:' + curHov.getAttribute('data-y'),
             gEnv: 'Environment: ' + gridObj.env,
             gBonus: 'Bonus: ' + gridObj.bonus,
             gBuildings: 'Buildings: ' + gridObj.buildings
