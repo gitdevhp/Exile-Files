@@ -64,10 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     const curSelect = document.querySelector(`[data-x="${i}"][data-y="${r}"]`);
                     if (curSelect !== null) {
-                        const addGs = new Gs(caseEnv, bonusNum, true, curSelect);
-                        if (addGs.element !== curSelect) {
-                            curSelect.appendChild(addGs.element);
-                        }
+                        const addGs = new Gs(caseEnv, bonusNum, true);
                         if (curSelect.hasAttribute('data-clicked')) {
                             curSelect.removeEventListener('click', revealGridInfo);
                         }
@@ -84,14 +81,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function Gs(env, bonus, reveal, element) {
+    function Gs(env, bonus, reveal) {
         this.env = env;
         this.bonus = bonus;
 
         this.population = 0;
         this.reveal = reveal;
         this.buildings = 'none';
-        this.element = element;
     }
 
     function hideGridInfo() {
@@ -126,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setCap() {
-        const gridObj = selectedGrid;
+        const gridObj = curHov[Object.keys(curHov)][0];
         selectedGrid.setAttribute('data-is-capital', true); // Use 'selectedGrid' instead of 'curHov'
         document.getElementById('askCap').style.display = 'none';
         gridObj.population = 5;
