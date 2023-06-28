@@ -1,5 +1,4 @@
 let selectedGrid;
-let baseSet = false;
 let canPlay = false;
 
 const screenWidth = window.screen.width;
@@ -64,30 +63,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     const curSelect = document.querySelector(`[data-x="${i}"][data-y="${r}"]`);
                     if (curSelect !== null) {
-                        const addGs = new Gs(caseEnv, bonusNum, true);
-                        if (curSelect.hasAttribute('data-clicked')) {
-                            curSelect.removeEventListener('click', revealGridInfo);
-                        }
+                        addAttribute(cursSelect, bonusNum, caseEnv, 0, null);
+                        curSelect.removeEventListener('click', gridButClickHandler);
                         addColor(curSelect);
-                        if (!curSelect.classList.contains('capital')) {
-                            curSelect.addEventListener('click', revealGridInfo);
-                            curSelect.setAttribute('data-clicked', true);
-                        }
+                        curSelect.addEventListener('click', revealGridInfo);
                         document.getElementById('askCap').style.display = 'block';
                     }
                 }
             }
-            baseSet = true;
         }
     }
 
-    function Gs(env, bonus, reveal) {
-        this.env = env;
-        this.bonus = bonus;
-
-        this.population = 0;
-        this.reveal = reveal;
-        this.buildings = 'none';
+    function addAttribute(selGrid, bon, envi, pop, build) {
+        selGrid.setAttribute('data-bonus', bon);
+        selGrid.setAttribute('data-env', env);
+        selGrid.setAttribute('data-pop', pop);
+        selGrid.setAttribute('data-built', build);
     }
 
     function hideGridInfo() {
@@ -96,25 +87,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function revealGridInfo() {
         console.log(curHov);
-        const gridObj = curHov[Object.keys(curHov)][0];
         selectedGrid = curHov;
     
         const gridInfo = {
-            gName: 'x:' + curHov.getAttribute('data-x') + 'y:' + curHov.getAttribute('data-y'),
-            gEnv: 'Environment: ' + gridObj.env,
-            gBonus: 'Bonus: ' + gridObj.bonus,
-            gBuildings: 'Buildings: ' + gridObj.buildings
+            gName: 'x:' + selectedGrid.getAttribute('data-x') + 'y:' + selectedGrid.getAttribute('data-y'),
+            gEnv: 'Environment: ' + selectedGrid.getAttribute('data-env'),
+            gBonus: 'Bonus: ' + selectedGrid.getAttribute('data-bon'),
+            gBuildings: 'Buildings: ' + selectedGrid.getAttribute('data-built')
         };
     
         console.log(gridInfo);
+        document.getElementById('gridStat').innerHTML = gridInfo;
+        document.getElementById('gridStat').style.display = 'block';
     }
     
     
 
     function addColor(areaToColor) {
-        const gridObj = areaToColor.querySelector('.Gs');
         if (gridObj) {
-            const envu = gridObj.env;
+            const envu = areaToColor.getAttribute('data-env');
             const elementClassList = areaToColor.classList;
             elementClassList.remove('forest', 'mountain', 'plains', 'desert', 'basic');
             elementClassList.add(envu);
