@@ -1,3 +1,7 @@
+html {
+    zoom: 120%;
+}
+
 /*flex*/
 #grid {
     display: grid;
