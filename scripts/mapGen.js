@@ -4,8 +4,10 @@ let canPlay = false;
 const screenWidth = window.screen.width;
 const screenHeight = window.screen.height;
 
-let div_size = screenWidth / 16;
-let num_div = 16 * 9;
+export var columns = 16;
+export var rows = 9;
+let div_size = screenWidth / columns;
+var num_div = columns * rows;
 let curHov = null;
 
 document.addEventListener('mousemove', e => {
@@ -17,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initMap();
 
     function initMap() {
-        for (let c = 1; c <= 9; c++) {
-            for (let r = 1; r <= 16; r++) {
+        for (let c = 1; c <= rows; c++) {
+            for (let r = 1; r <= columns; r++) {
                 const gridBut = document.createElement('div');
                 gridBut.setAttribute('data-x', r);
                 gridBut.setAttribute('data-y', c);
