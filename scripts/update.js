@@ -1,6 +1,7 @@
 import { rows, columns } from "/scripts/mapGen.js";
 
-function populationUpdate() {
+function statUpdate() {
+    //population update
     for (let r = 1; r <= rows; r++) {
         for (let c = 1; c <= columns; c++) {
             const curSelect = document.querySelector(`[data-x="${c}"][data-y="${r}"]`);
@@ -9,6 +10,7 @@ function populationUpdate() {
         }
     }
     var totalPopAdd =+ addedPop;
+    false
 }
 
 setInterval(populationUpdate, 1000);

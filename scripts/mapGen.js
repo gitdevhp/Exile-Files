@@ -10,6 +10,8 @@ let div_size = screenWidth / columns;
 var num_div = columns * rows;
 let curHov = null;
 
+var population = 0;
+
 document.addEventListener('mousemove', e => {
     curHov = document.elementFromPoint(e.clientX, e.clientY);
 }, { passive: true });
@@ -37,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setBase(area) {
+        area.setAttribute('data-is-capital', true);
         const xArea = area.getAttribute('data-x');
         const yArea = area.getAttribute('data-y');
     
@@ -69,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         curSelect.removeEventListener('click', gridButClickHandler);
                         addColor(curSelect);
                         curSelect.addEventListener('click', revealGridInfo);
-                        document.getElementById('askCap').style.display = 'block';
+                        //document.getElementById('askCap').style.display = 'block';
                     }
                 }
             }
@@ -79,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function addAttribute(selGrid, bon, envi, pop, build) {
         selGrid.setAttribute('data-bonus', bon);
         selGrid.setAttribute('data-env', env);
-        selGrid.setAttribute('data-pop', pop);
         selGrid.setAttribute('data-built', build);
     }
 
@@ -102,8 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('gridStat').innerHTML = gridInfo;
         document.getElementById('gridStat').style.display = 'block';
     }
-    
-    
 
     function addColor(areaToColor) {
         if (gridObj) {
@@ -112,13 +112,5 @@ document.addEventListener('DOMContentLoaded', () => {
             elementClassList.remove('forest', 'mountain', 'plains', 'desert', 'basic');
             elementClassList.add(envu);
         }
-    }
-
-    function setCap() {
-        const gridObj = curHov[Object.keys(curHov)][0];
-        selectedGrid.setAttribute('data-is-capital', true); // Use 'selectedGrid' instead of 'curHov'
-        document.getElementById('askCap').style.display = 'none';
-        gridObj.population = 5;
-        canPlay = true;
     }
 });
