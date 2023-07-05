@@ -88,11 +88,16 @@ button {
 }
 
 #stats {
-    position: absolute;
-    height: 50vh;
-    width: 10vw;
+    position: relative;
+    height: 10vh;
+    width: 100vw;
     background-color: black;
     border: 1px white;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* environment colors and textures */

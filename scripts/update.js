@@ -1,10 +1,11 @@
-import 
+//import {population} from '/scripts/mapGen.js';
+var moneyRate = 0;
 
 function statUpdate() {
-    const curSelect = document.querySelector(`[data-x="${c}"][data-y="${r}"]`);
-    var curpop = curSelect.getAttribute('data-pop');
-    var addedPop = curpop * .5; //replace with Rate increase of population by grid
-    var totalPopAdd =+ addedPop;
+    population *= 1.2;
+    money += moneyRate;
+    document.getElementById('populus').innerHTML = 'population: ' + population;
+    document.getElementById('money').innerHTML = 'money: ' + money;
 }
 
 setInterval(statUpdate, 1000);

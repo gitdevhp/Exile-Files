@@ -4,13 +4,13 @@ let canPlay = false;
 const screenWidth = window.screen.width;
 const screenHeight = window.screen.height;
 
-export var columns = 16;
-export var rows = 9;
+var columns = 16;
+var rows = 9;
 let div_size = screenWidth / columns;
 var num_div = columns * rows;
 let curHov = null;
 
-var population = 0;
+//export var population = 0;
 
 document.addEventListener('mousemove', e => {
     curHov = document.elementFromPoint(e.clientX, e.clientY);
@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             }
+            landMass = 13;
         }
     }
 

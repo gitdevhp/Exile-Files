@@ -5,17 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exile Files</title>
-    <script src="scripts/mapGen.js"></script>
+    <script src="scripts/mapGen.js">
+        var population = 0;
+        var money = 0;
+        var landMass = 0;
+    </script>
+    <script src="scripts/update.js" defer></script>
+
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div id="usables" style="display: none;">
         <div id="stats">
-            <p id="pop">population: 0</p>
-            <p id="area">occupied area: 0</p>
+            <p id="populus">population: 0</p>
+            <p id="money">money: 0</p>
+            <p id="occA">land mass: 0</p>
         </div>
-    </div>
     <div id="grid" style="z-index: 0;">
 
     </div>
