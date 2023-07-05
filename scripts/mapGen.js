@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     const curSelect = document.querySelector(`[data-x="${i}"][data-y="${r}"]`);
                     if (curSelect !== null) {
-                        addAttribute(cursSelect, bonusNum, caseEnv, 0, null);
+                        addAttribute(cursSelect, bonusNum, caseEnv, null);
                         curSelect.removeEventListener('click', gridButClickHandler);
                         addColor(curSelect);
                         curSelect.addEventListener('click', revealGridInfo);
@@ -79,10 +79,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function addAttribute(selGrid, bon, envi, pop, build) {
+    function addAttribute(selGrid, bon, envi, build) {
         selGrid.setAttribute('data-bonus', bon);
         selGrid.setAttribute('data-env', env);
-        selGrid.setAttribute('data-built', build);
+        selGrid.addBuilding(build);
     }
 
     function hideGridInfo() {
@@ -106,11 +106,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function addColor(areaToColor) {
-        if (gridObj) {
             const envu = areaToColor.getAttribute('data-env');
             const elementClassList = areaToColor.classList;
             elementClassList.remove('forest', 'mountain', 'plains', 'desert', 'basic');
             elementClassList.add(envu);
+    }
+
+    function addBuilding(building, selectGrid) {
+        if (building!==null) {
+            switch (building) {
+                case 'capital':
+                    const nodeAdd = document.createElement('img','src = "blank add new"');
+                    selectGrid.appendChild(nodeAdd);
+                break;
+                //add more cases as neccecary///\\\\
+            }
         }
     }
 });
