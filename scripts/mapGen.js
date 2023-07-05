@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
             landMass = 13;
+            console.log('GoGoGo!!!');
         }
     }
 

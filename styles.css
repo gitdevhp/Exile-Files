@@ -100,6 +100,25 @@ button {
     align-items: center;
 }
 
+#placeables {
+    position: absolute;
+    height: 100vh;
+    width: 10vh;
+
+    border: 1px white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow: scroll;
+}
+
+#zeroPurpose {
+    color: red;
+    background-color: gray;
+}
+
 /* environment colors and textures */
 .forest {
     background-color: #023C40;

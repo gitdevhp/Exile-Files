@@ -9,3 +9,18 @@ function statUpdate() {
 }
 
 setInterval(statUpdate, 1000);
+
+var housingLvl = 0;
+
+function housing() {
+    var houseType = 'tents';
+    switch (housingLvl) {
+        case 1:
+            houseType = 'small cabin';
+            break;
+        default:
+            houseType = 'tents';
+            break;
+    }
+    switchBuildables('housing', houseType);
+}
